@@ -1,0 +1,52 @@
+--criando banco
+create database teste1 
+--criando tabela
+create table table1(
+	id int not null primary key,
+	nome varchar(50),
+	preço decimal,
+	estoque int
+)
+
+--O camando abaixo serve para alterar as casas decimais 
+
+ALTER TABLE table1
+ALTER COLUMN preço DECIMAL(10, 2);
+
+-- consulta
+select * from table1
+
+-- inserir
+insert into table1 (id,nome,preço,estoque) values (1, 'Camiseta', 29.99,100)
+insert into table1 (id,nome,preço,estoque) values (2, 'Calça Jeans', 59.99,50)
+insert into table1 (id,nome,preço,estoque) values (3, 'Tênis esportivo', 89.99,30)
+
+-- consulta
+select * from table1
+
+-- consulta
+select * from table1 where estoque>50
+
+-- alterar um dado na tabela
+update table1 set preço = 34.99 where id=1
+update table1 set preço = 59.99 where id=2
+update table1 set preço = 89.99 where id=3
+
+update table1 set estoque = 40 where id=3
+
+-- O comando abaixo serve para deletar alguma informação na tabela. 
+
+delete from table1 where nome='Calça Jeans'
+
+-- consulta
+select * from table1
+
+select nome, estoque from table1
+
+select * from table1 where preço = (select max(preço) from table1);
+
+-- consulatr todas as informações da tabela 1
+sp_help table1
+
+
+
